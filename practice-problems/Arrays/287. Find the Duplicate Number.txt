@@ -1,0 +1,10 @@
+public int findDuplicate(int[] nums) {
+        int len = nums.length;
+        for(int i =0;i<len;i++){
+           int pos = Math.abs(nums[i]);
+           if(nums[pos]<0)return pos;
+           nums[pos] = -nums[pos];
+           // System.out.println(Arrays.toString(nums));
+        }
+        return 0;
+    }
