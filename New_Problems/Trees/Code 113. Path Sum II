@@ -1,0 +1,14 @@
+List<List<Integer>> res;
+    public void dfs(List<Integer> list,TreeNode root, int target){
+        if(root==null)return;
+        list.add(root.val);
+        if(root.left==null&&root.right==null&&target==root.val)res.add(new ArrayList<>(list));
+        dfs(list,root.left,target-root.val);
+        dfs(list,root.right,target-root.val);
+        list.remove(list.size()-1);
+    }
+    public List<List<Integer>> pathSum(TreeNode root, int target) {
+        res = new ArrayList<>();
+        dfs(new ArrayList<>(),root,target);
+        return res;
+    }
